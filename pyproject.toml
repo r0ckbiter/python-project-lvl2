@@ -2,10 +2,10 @@
 name = "hexlet-code"
 version = "0.1.0"
 description = ""
-authors = ["Eduard Zhuravlev <insanerealty@gmail.com>"]
 packages = [
   { include = "gendiff" },
 ]
+authors = ["Eduard Zhuravlev <insanerealty@gmail.com>"]
 
 
 [tool.poetry.dependencies]
