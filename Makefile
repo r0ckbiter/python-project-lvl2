@@ -20,4 +20,4 @@ package-reinstall:
 	python3 -m pip install --force-reinstall --user dist/*.whl
 
 test:
-	poetry run coverage run --source=gendiff -m pytest tests
+	poetry run pytest tests/

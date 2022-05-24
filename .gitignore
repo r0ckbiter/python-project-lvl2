@@ -2,3 +2,8 @@
 .idea/
 .venv
 dist/
+.vscode
+*_cache
+__pycache__
+.python-version
+.coverage
