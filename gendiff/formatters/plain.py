@@ -1,55 +1,91 @@
-from gendiff.constants import (
-    ADDED,
-    CHANGED,
-    COMPLEX,
-    NESTED,
-    REMOVED,
-    UNCHANGED,
-)
+from typing import Any, List
 
-ADDED_TMPL = "Property '{0} was added with value: '{1}'"
-REMOVED_TMPL = "Property '{0} was removed"
-CHANGED_TMPL = "Property '{0} was changed. From: '{1}' to '{2}'"
+from gendiff import STATUS_ADDED, STATUS_NODE, STATUS_REMOVED, STATUS_UPDATED
+
+ADDED_MSG = "Property '{path}' was added with value: {value}"
+REMOVED_MSG = "Property '{path}' was removed"
+UPDATED_MSG = "Property '{path}' was updated. From {old_value} to {new_value}"
+PATH_SEPARATOR = '.'
+
+FALSE_FORMAT = 'false'
+TRUE_FORMAT = 'true'
+NONE_FORMAT = 'null'
+COMPLEX_VALUE_FORMAT = '[complex value]'
+STRING_FORMAT = "'{value}'"
 
 
-def render(ast, parent=''):
-    if not isinstance(ast, dict):
-        return str(ast)
+def plain(diff: dict) -> str:
+    """Format diff data dict.
+    Property 'path.property' was added with value: 'value'
+    Property 'path.property' was removed
+    Property 'path.property' was updated. From 'value 1' to 'value 2'
+    Parameters:
+        diff: differences data representation
+    Returns:
+        formated string
+    """
 
-    result_array = []
+    output = get_rows(diff)
+    return '\n'.join(output)
 
-    for node_key, node_value in ast.items():
-        prop = get_property(parent, node_key)
-        node_type = node_value.get('type')
 
-        if node_type == ADDED:
-            entry = ADDED_TMPL.format(prop, get_value(node_value))
-        elif node_type == REMOVED:
-            entry = REMOVED_TMPL.format(prop)
+def get_rows(node: dict, path: List[str] = []) -> List[str]:
+    """Formats the diff to a list of strings plain."""
+    node_rows = []
 
-        if node_type == NESTED:
-            entry = render(node_value.get('value'), prop)
-        elif node_type == CHANGED:
-            entry = CHANGED_TMPL.format(
-                prop,
-                node_value.get("new_value"),
-                node_value.get("old_value"),
+    node['values'] = sort_values(node['values'])
+
+    for value in node['values']:
+        status, key = value['diff'], value['key']
+        new_path = [*path, key]
+        if status == STATUS_NODE:
+            node_rows.extend(get_rows(value, new_path))
+
+        elif status == STATUS_UPDATED:
+            node_rows.append(
+                UPDATED_MSG.format(
+                    path=PATH_SEPARATOR.join(new_path),
+                    old_value=get_output_format(value['old_values']),
+                    new_value=get_output_format(value['new_values'])
+                )
             )
-        elif node_type == UNCHANGED:
-            continue
 
-        result_array.append(entry)
-    return '\n'.join(result_array)
+        elif status == STATUS_ADDED:
+            node_rows.append(
+                ADDED_MSG.format(
+                    path=PATH_SEPARATOR.join(new_path),
+                    value=get_output_format(value['values'])
+                )
+            )
+
+        elif status == STATUS_REMOVED:
+            node_rows.append(
+                REMOVED_MSG.format(
+                    path=PATH_SEPARATOR.join(new_path)
+                )
+            )
+
+    return node_rows
 
 
-def get_value(node):
-    node_value = node.get('value')
-    if isinstance(node_value, dict):
-        return COMPLEX
-    return str(node_value)
+def get_output_format(value: Any) -> str:
+    """Returns the values to the form plain."""
+    if isinstance(value, (dict, list)):
+        new_value = COMPLEX_VALUE_FORMAT
+    elif isinstance(value, str):
+        new_value = STRING_FORMAT.format(value=value)
+    elif value is True:
+        new_value = TRUE_FORMAT
+    elif value is False:
+        new_value = FALSE_FORMAT
+    elif value is None:
+        new_value = NONE_FORMAT
+    else:
+        new_value = value
+    return new_value
 
 
-def get_property(parent, prop_name):
-    if not parent:
-        return prop_name
-    return '{parent}.{prop}'.format(parent=parent, prop=prop_name)
+def sort_values(values: List[dict]) -> List[dict]:
+    """Sort the dictionaries in the list by the key " key."""
+    values = sorted(values, key=lambda value: value['key'])
+    return values

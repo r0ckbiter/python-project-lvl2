@@ -1,5 +1,6 @@
-import json
+from json import dumps as json_dumbs
 
 
-def render(ast):
-    return json.dumps(ast, indent=2)
+def json(diff: dict) -> str:
+    output = json_dumbs(diff)
+    return output
