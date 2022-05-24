@@ -1,5 +1,4 @@
 import json
-import yaml
 
 
 def parser(file_data, file_type):
