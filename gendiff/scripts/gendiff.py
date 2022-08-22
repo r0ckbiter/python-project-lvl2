@@ -3,6 +3,7 @@
 import argparse
 DESCRIPTION = 'Compares two configuration files and shows a difference.'
 
+
 def main():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument('first_file')
