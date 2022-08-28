@@ -1,4 +1,6 @@
 .git
-.venv
 dist
 .idea
+.pytest_cache
+.venv
+*.pyc
