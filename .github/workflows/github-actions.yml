@@ -1,36 +1,28 @@
 name: github-actions
-on:  [push]
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  build:
-    name: build
+  linter:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
       - uses: actions/checkout@v2
-      - name: install Python
+      - name: Set up Python 3.8
         uses: actions/setup-python@v2
-      - name: Install poetry
-        run: |
-          pip install poetry
-          make install
-      - name: Run linter
+        with:
+          python-version: 3.8
+      - name: install poetry
+        run: pip install poetry
+      - name: install dependency
+        run: make install
+      - name: lint
         run: make lint
-      - name: Run tests
-        run: make test
-  coverage:
-    needs: [ build ]
-    name: coverage
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-      - name: Install poetry
-        run: |
-          pip install poetry
-          make install
-      - uses: paambaati/codeclimate-action@v2.7.4
+      - name: code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: 17c56899f8ce409e0c3965c130fb06a11861c876e49fed8e9d2fb56daf0be239
         with:
