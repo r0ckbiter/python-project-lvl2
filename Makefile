@@ -18,3 +18,10 @@ lint:
 	
 package-reinstall:
 	python3 -m pip install --force-reinstall --user dist/*.whl
+	
+test:
+	poetry run pytest tests -vv
+
+
+coverage:
+	poetry run pytest --cov=gendiff --cov-report xml tests/

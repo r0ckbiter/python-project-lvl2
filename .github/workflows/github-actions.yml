@@ -1,17 +1,14 @@
-name: CI
-
+name: github-actions
 on:  [push]
-
 jobs:
   build:
     name: build
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
       - uses: actions/checkout@v2
-
       - name: install Python
         uses: actions/setup-python@v2
-
       - name: Install poetry
         run: |
           pip install poetry
@@ -25,6 +22,7 @@ jobs:
     name: coverage
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -34,6 +32,6 @@ jobs:
           make install
       - uses: paambaati/codeclimate-action@v2.7.4
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_ID }}
+          CC_TEST_REPORTER_ID: 17c56899f8ce409e0c3965c130fb06a11861c876e49fed8e9d2fb56daf0be239
         with:
           coverageCommand: make coverage
