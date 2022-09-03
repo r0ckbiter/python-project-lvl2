@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3005a78-9830-4561-b15d-48370bdf657c" name="Changes" comment="" />
+    <list default="true" id="c3005a78-9830-4561-b15d-48370bdf657c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/gendiff/diff_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/diff_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_json_flat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_json_flat.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +48,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_json_flat.test_generate_diff">
+  <component name="RunManager" selected="Python tests.pytest in tests">
     <configuration name="lint" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="lint" workingDirectory="" arguments="">
         <envs />
@@ -115,25 +118,49 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_json_flat.test_generate_diff" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in rockbiter" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="python-project-lvl2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in tests" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_json_flat.test_generate_diff&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Makefile Target.lint" />
+      <item itemvalue="Python.diff_builder" />
+      <item itemvalue="Python.gendiff" />
+      <item itemvalue="Python.gendiff (2)" />
+      <item itemvalue="Python tests.pytest in tests" />
+      <item itemvalue="Python tests.pytest in rockbiter" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_json_flat.test_generate_diff" />
+        <item itemvalue="Python tests.pytest in tests" />
         <item itemvalue="Python.diff_builder" />
         <item itemvalue="Python.gendiff" />
         <item itemvalue="Python.gendiff (2)" />

@@ -3,9 +3,7 @@ import os
 from gendiff import diff_builder
 
 
-PATH = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/'
-first_file = 'file1.json'
-second_file = 'file2.json'
+PATH = 'tests/fixtures/'
 
 
 @pytest.mark.parametrize('path_to_first, path_to_second, expected_result', [

@@ -1,6 +1,6 @@
 import json
 import os
-PATH = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/'
+PATH = 'tests/fixtures/'
 
 
 def generate_diff(first_file, second_file):
