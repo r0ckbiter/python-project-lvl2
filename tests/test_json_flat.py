@@ -1,14 +1,24 @@
 import pytest
+import os
 from gendiff import diff_builder
 
 
-expected = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/expect'
-first_file = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/file1.json'
-second_file = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/file2.json'
+PATH_TO_FIXTURES = '/home/rockbiter/git/projects/python-project-lvl2/tests/fixtures/'
+first_file = 'file1.json'
+second_file = 'file2.json'
 
 
-def test_generate_diff():
-    result = diff_builder.generate_diff(first_file, second_file)
-    with open(expected, 'r') as expect_file:
-        expect_result = expect_file.read()
-        assert result == expect_result
+@pytest.mark.parametrize('path_to_first, path_to_second, expected_result', [
+    pytest.param(
+        'file1.json',
+        'file2.json',
+        'expect',
+    )])
+def test_generate_diff(path_to_first, path_to_second, expected_result):
+    test_data = collect_data('expect')
+    assert diff_builder.generate_diff(path_to_first, path_to_second) == test_data
+
+
+def collect_data(path_to_file):
+    with open(os.path.join(PATH_TO_FIXTURES, path_to_file), 'r') as fixture:
+        return fixture.read()

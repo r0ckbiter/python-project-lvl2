@@ -17,13 +17,15 @@ jobs:
           python-version: 3.8
       - name: install poetry
         run: pip install poetry
-      - name: install dependency
+      - name: install dependencies
         run: make install
-      - name: lint
+      - name: linter
         run: make lint
+      - name: run tests
+        run: make test
       - name: code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: 17c56899f8ce409e0c3965c130fb06a11861c876e49fed8e9d2fb56daf0be239
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REP_ID }}
         with:
           coverageCommand: make coverage
