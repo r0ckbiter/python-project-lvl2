@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3005a78-9830-4561-b15d-48370bdf657c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/github-actions.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/github-actions.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python-project-lvl2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-project-lvl2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/hexlet-code-0.1.0.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/hexlet-code-0.1.0.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/hexlet_code-0.1.0-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/hexlet_code-0.1.0-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/diff_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/diff_builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_json_flat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_json_flat.py" afterDir="false" />
-    </list>
+    <list default="true" id="c3005a78-9830-4561-b15d-48370bdf657c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
