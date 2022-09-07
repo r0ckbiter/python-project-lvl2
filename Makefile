@@ -20,7 +20,7 @@ package-reinstall:
 	python3 -m pip install --force-reinstall --user dist/*.whl
 	
 test:
-	poetry run pytest tests -vv
+	poetry run pytest /tests
 
 
 coverage:
