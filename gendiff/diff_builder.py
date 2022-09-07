@@ -1,4 +1,3 @@
-import json
 import os
 from gendiff.file_parser import get_data
 PATH = 'tests/fixtures/'
