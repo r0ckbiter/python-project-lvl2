@@ -1,5 +1,6 @@
 import json
 import os
+from gendiff.file_parser import get_data
 PATH = 'tests/fixtures/'
 
 
@@ -9,8 +10,8 @@ def generate_diff(first_file, second_file):
         path_to_second_file = os.path.join(PATH, second_file)
     else:
         path_to_first_file, path_to_second_file = first_file, second_file
-    data1 = json.load(open(path_to_first_file))
-    data2 = json.load(open(path_to_second_file))
+    data1 = get_data(path_to_first_file)
+    data2 = get_data(path_to_second_file)
     all_keys = data1.keys() | data2.keys()
     all_keys = sorted(all_keys)
     string = '{' + '\n'
